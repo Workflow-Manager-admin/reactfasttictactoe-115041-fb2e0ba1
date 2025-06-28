@@ -8,6 +8,22 @@ This project provides a minimal React template with a clean, modern UI and minim
 - **Modern UI**: Clean, responsive design with KAVIA brand styling
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
+## API Base URL Configuration
+
+The frontend uses an environment variable `REACT_APP_API_BASE` to determine the base URL for backend API calls.  
+If not set, it defaults to:  
+`https://vscode-internal-794-beta.beta01.cloud.kavia.ai:3001/`
+
+### To change the backend API base URL (for development or deployment):
+
+1. Create a `.env` file in the `tic_tac_toe_frontend/` directory (same level as package.json).
+2. Add the following line (replace with your backend URL if needed):
+   ```
+   REACT_APP_API_BASE=https://your-backend-url:3001/
+   ```
+3. Restart the development server if running.
+
+**Note:** There should be no references to `localhost` in the production frontend build.
 
 ## Getting Started
 

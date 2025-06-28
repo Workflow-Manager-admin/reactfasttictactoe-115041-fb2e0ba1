@@ -12,12 +12,12 @@ const ACCENT = "#ff9800";
 const SECONDARY = "#424242";
 
 /**
- * Helper for API base (assumes frontend served from :3000, backend :3001)
+ * Helper for API base: configurable via REACT_APP_API_BASE (.env), with a fallback to default prod URL.
  * Placed above the `api` object so it is in-scope for all usages.
  */
 const API_BASE =
-  process.env.REACT_APP_TTT_API ||
-  "http://localhost:3001";
+  process.env.REACT_APP_API_BASE ||
+  "https://vscode-internal-794-beta.beta01.cloud.kavia.ai:3001/";
 
 // API Helpers
 const api = {
