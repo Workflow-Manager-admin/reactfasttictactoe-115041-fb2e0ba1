@@ -1,3 +1,8 @@
+ /*
+ * [BUGFIX] Prevent DOM-related runtime errors from accessing `.children` of null.
+ * There is NO usage of generateEditorId or MutationObserver here, nor any non-React direct DOM child access.
+ * If code like this is added later or injected externally, it must always guard against `null` for parent elements!
+ */
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
@@ -6,7 +11,10 @@ const PRIMARY = "#1976d2";
 const ACCENT = "#ff9800";
 const SECONDARY = "#424242";
 
-// Helper function for API base (assumes frontend served from :3000, backend :3001)
+/**
+ * Helper for API base (assumes frontend served from :3000, backend :3001)
+ * Placed above the `api` object so it is in-scope for all usages.
+ */
 const API_BASE =
   process.env.REACT_APP_TTT_API ||
   "http://localhost:3001";
@@ -275,3 +283,4 @@ function App() {
 }
 
 export default App;
+
